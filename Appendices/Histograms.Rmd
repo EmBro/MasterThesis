@@ -1,0 +1,182 @@
+---
+title: "Histograms for all refrigeration furnitures and rooms"
+author: "Emil Brohus Jakobsen"
+date: "4/10/2017"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+```{r}
+d_LT_gon = read.table(url('https://raw.githubusercontent.com/EmBro/MasterThesis/master/Data/Bilka_Temperature/Freez_Displays_100-115.csv'),
+                   sep = ',', dec = '.', header = T)
+```
+
+## Histograms for freezer gondolas
+
+```{r}
+col.type <- data.frame("varType"=sapply(d_LT_gon, function (x) class(x)))
+col.type$varName <- rownames(col.type)
+
+rownames(col.type) <- NULL
+
+noBreaks <- 50
+
+nCol <- nrow(col.type)
+for(i in 1:nCol){
+  if(col.type[i,1]=="numeric"){
+    
+    hist(d_LT_gon[,col.type[i,2]],
+         breaks=noBreaks,
+         probability = T,
+         main=paste(" Histogram for LT Gondola ",col.type[i,2],sep=""),
+         ylab="Count",
+         col="grey"
+    )
+  }
+}
+```
+
+## Histograms for refrigeration gondolas
+
+```{r}
+d_MT_gon = read.table(url('https://raw.githubusercontent.com/EmBro/MasterThesis/master/Data/Bilka_Temperature/Cool_Displays_50-65.csv'),
+               sep = ',', dec = '.', header = T)
+
+col.type <- data.frame("varType"=sapply(d_MT_gon, function (x) class(x)))
+col.type$varName <- rownames(col.type)
+
+rownames(col.type) <- NULL
+
+nCol <- nrow(col.type)
+for(i in 1:nCol){
+  if(col.type[i,1]=="numeric"){
+    
+    hist(d_MT_gon[,col.type[i,2]],
+         breaks=noBreaks,
+         probability = T,
+         main=paste(" Histogram for MT Gondola ",col.type[i,2],sep=""),
+         ylab="Count",
+         xlab = '',
+         col="grey"
+    )
+  }
+}
+```
+
+
+## Histograms for End displays
+
+```{r}
+d_end_gon = read.table(url('https://raw.githubusercontent.com/EmBro/MasterThesis/master/Data/Bilka_Temperature/End_Displays_130-161.csv'),
+                  sep = ',', dec = '.', header = T)
+
+col.type <- data.frame("varType"=sapply(d_end_gon, function (x) class(x)))
+col.type$varName <- rownames(col.type)
+
+rownames(col.type) <- NULL
+
+nCol <- nrow(col.type)
+for(i in 1:nCol){
+  if(col.type[i,1]=="numeric"){
+    
+    hist(d_end_gon[,col.type[i,2]],
+         breaks=noBreaks,
+         probability = T,
+         main=paste(" Histogram for LT or MT End-Gondola ",col.type[i,2],sep=""),
+         ylab="Count",
+         xlab = '',
+         col="grey"
+    )
+  }
+}
+```
+
+
+## Histograms for wall displays
+
+```{r}
+d_Cool_Wall = read.table(url('https://raw.githubusercontent.com/EmBro/MasterThesis/master/Data/Bilka_Temperature/Cool_Walls_70-80.csv'),
+                   sep = ',', dec = '.', header = T)
+
+col.type <- data.frame("varType"=sapply(d_Cool_Wall, function (x) class(x)))
+col.type$varName <- rownames(col.type)
+
+rownames(col.type) <- NULL
+
+nCol <- nrow(col.type)
+for(i in 1:nCol){
+  if(col.type[i,1]=="numeric"){
+    
+    hist(d_Cool_Wall[,col.type[i,2]],
+         breaks=noBreaks,
+         probability = T,
+         main=paste("Histogram for wall display",col.type[i,2],sep=""),
+         ylab="Count",
+         xlab = '',
+         col="grey"
+    )
+  }
+}
+```
+
+## Histograms for refrigeration rooms
+
+```{r}
+d_MT_Rooms = read.table(url('https://raw.githubusercontent.com/EmBro/MasterThesis/master/Data/Bilka_Temperature/Cool_Rooms.csv'),
+               sep = ',', dec = '.', header = T)
+
+col.type <- data.frame("varType"=sapply(d_MT_Rooms, function (x) class(x)))
+col.type$varName <- rownames(col.type)
+
+rownames(col.type) <- NULL
+
+nCol <- nrow(col.type)
+for(i in 1:nCol){
+  if(col.type[i,1]=="numeric"){
+    
+    hist(d_MT_Rooms[,col.type[i,2]],
+         breaks=noBreaks,
+         probability = F,
+         main=paste(" Histogram for Medium Temperature Room ",col.type[i,2],sep=""),
+         ylab="Count",
+         xlab = '',
+         col="grey"
+    )
+  }
+}
+```
+
+## Histograms for Low Temperature rooms
+
+```{r}
+d_LT_Rooms = read.table(url('https://raw.githubusercontent.com/EmBro/MasterThesis/master/Data/Bilka_Temperature/Freez_Rooms.csv'),
+                   sep = ',', dec = '.', header = T)
+
+col.type <- data.frame("varType"=sapply(d_LT_Rooms, function (x) class(x)))
+col.type$varName <- rownames(col.type)
+
+rownames(col.type) <- NULL
+
+nCol <- nrow(col.type)
+for(i in 1:nCol){
+  if(col.type[i,1]=="numeric"){
+    
+    hist(d_LT_Rooms[,col.type[i,2]],
+         breaks=noBreaks,
+         probability = T,
+         main=paste(" Histogram for Low Temperature Room ",col.type[i,2],sep=""),
+         ylab="Count",
+         xlab = '',
+         col="grey"
+    )
+  }
+}
+```
+
+
+
+
+
+
