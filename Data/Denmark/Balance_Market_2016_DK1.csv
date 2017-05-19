@@ -1,4 +1,4 @@
-Date;Day;Hour;DK-West: Availability Pay - Up;DK-West: Availability Pay - Down;DK-West: Amount bought - Up;DK-West: Amount bought - Down
+Date;Day;Hour;DK1_UP;DK1_Down;DK2_UP_MWh;DK2_DOWN_MWh
 01/01/2016;Friday;1;61,00;10,00;14,5;14,4
 01/01/2016;Friday;2;61,00;10,00;14,5;14,4
 01/01/2016;Friday;3;61,00;10,00;14,5;14,4
