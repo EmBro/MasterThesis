@@ -6,7 +6,10 @@ d = na.omit(d)
 means_up = aggregate(DK1_UP_P ~ Hour, d, mean)
 
 
-plot(means_up$DK1_UP_P, type = 'l')
+plot(means_up$DK1_UP_P, type = 'l',
+     ylab = 'DKK/MW',
+     xlab = 'Time',
+cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5)
 grid(0, NULL, col = 'darkgrey')
 
 
